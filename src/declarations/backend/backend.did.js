@@ -1,4 +1,7 @@
 export const idlFactory = ({ IDL }) => {
-  return IDL.Service({ 'whoami' : IDL.Func([], [IDL.Principal], ['query']) });
+  return IDL.Service({
+    'get' : IDL.Func([], [IDL.Nat], ['query']),
+    'whoami' : IDL.Func([], [IDL.Principal], []),
+  });
 };
 export const init = ({ IDL }) => { return []; };

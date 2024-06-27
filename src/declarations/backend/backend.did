@@ -1,3 +1,4 @@
 service : {
-  whoami: () -> (principal) query;
+  get: () -> (nat) query;
+  whoami: () -> (principal);
 }
