@@ -38,6 +38,10 @@ const loginII = async() => {
     authClient = await AuthClient.create();
     let identity = authClient.getIdentity();
     document.getElementById("loginStatus")!.innerText = 'Your Client Pricipal ID: '+identity.getPrincipal().toText();
+
+    // get the function counter
+    counter = await $ic.actor.get();
+    
   } catch(err){
       console.log('login cancelled');
   }
