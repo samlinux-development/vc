@@ -11,6 +11,6 @@
 
 
   <div class="desc">
-    You can find the repository on Github: 
+    You can find the repository on Github: <a target="_blank" href="https://github.com/samlinux-development/vc">https://github.com/samlinux-development/vc</a>
   </div>
 </div>
