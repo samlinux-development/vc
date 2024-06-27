@@ -22,13 +22,20 @@ onMount(async () => {
     }
 });
 
-const loginII = async() =>{
-  const isAuthenticated = await $ic.loginII();
-  userIsAuthenticated = isAuthenticated;
-
-  authClient = await AuthClient.create();
-  let identity = authClient.getIdentity();
-  document.getElementById("loginStatus")!.innerText = 'Your Client Pricipal ID: '+identity.getPrincipal().toText();
+const loginII = async() => {
+  try {
+    const isAuthenticated = await $ic.loginII();
+    userIsAuthenticated = isAuthenticated;
+    if(!isAuthenticated){
+      console.log('login wrong');
+      return;
+    }
+    authClient = await AuthClient.create();
+    let identity = authClient.getIdentity();
+    document.getElementById("loginStatus")!.innerText = 'Your Client Pricipal ID: '+identity.getPrincipal().toText();
+  } catch(err){
+      console.log('login cancelled');
+  }
 }
 
 const logoutII = async () => {
