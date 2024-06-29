@@ -26,3 +26,6 @@ dist-ssr
 .dfx
 .env
 helper.md
+
+solidjs/vc/node_modules
+solidjs/vc/dist

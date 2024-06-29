@@ -18,6 +18,10 @@
     "frontend": {
       "source": ["dist/"],
       "type": "assets"
+    },
+    "solidjs": {
+      "source": ["solidjs/vc/dist/"],
+      "type": "assets"
     }
   },   
   "defaults": {
