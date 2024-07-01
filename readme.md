@@ -17,7 +17,10 @@ The project has the following main features:
 - If the user is logged in and refreshes the page, the user is still logged in until he/she/it clicks the logout button.
 - The current user principal is shown from the client side and from the server side. Both must be the same.
 
-A running example can be found [here](https://wb7hf-myaaa-aaaak-qinuq-cai.icp0.io/).
+A running example can be found 
+
+- [for Svelte](https://wb7hf-myaaa-aaaak-qinuq-cai.icp0.io/)
+- [for SolidJs](https://claok-lqaaa-aaaak-qioda-cai.icp0.io/)
 
 **Note** to get a clean git repository. A tool called “digit” is used. Make sure you have it installed. If you haven't installed it yet, you can do so using the following command.
 
@@ -62,6 +65,7 @@ Open your browser and use the following URL scheme:
 dfx identity use <your-name>
 dfx canister create backend --with-cycles 1T --ic
 dfx canister create frontend --with-cycles 1T --ic
+dfx canister create solidjs --with-cycles 1T --ic
 
 # the local Internet Identity replica should not be used for the mainnet deployment
 dfx deploy --network ic

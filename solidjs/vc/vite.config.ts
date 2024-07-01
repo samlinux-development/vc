@@ -1,14 +1,17 @@
 import { defineConfig } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
 import environment from "vite-plugin-environment";
-import dotenv from "dotenv";
 
 // import devtools from 'solid-devtools/vite';
 
-dotenv.config();
-
 export default defineConfig({
+  // for this setup, the envDir is set to the root of the project
+  envDir: "../../",
+  define: {
+    global: "window",
+  },
   server: {
+    
     port: 3000,
     proxy: {
       "/api": {

@@ -8,10 +8,16 @@ const AuthContext = createContext();
 function AuthProvider(props:any) {
   // Create a signal for authentication state
   const [isAuthenticated, setIsAuthenticated] = createSignal(false);
+  const [clientIdentity, setClientIdentity] = createSignal(null);
+  
+  const value = {
+    isAuthenticated, setIsAuthenticated, 
+    clientIdentity, setClientIdentity 
+  };
 
   // Provide the state and updater function to children
   return (
-    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
+    <AuthContext.Provider value={value}>
       {props.children}
     </AuthContext.Provider>
   );

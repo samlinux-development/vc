@@ -12,6 +12,6 @@
     "noEmit": true,
     "isolatedModules": true,
     "allowImportingTsExtensions": true,
-    
-  },
+  }
+  
 }
