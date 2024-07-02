@@ -7,7 +7,7 @@ import { AuthContextType } from '../context/AuthContextType';
 
 const NotLoggedIn: Component = () => {
   
-  const { setIsAuthenticated, setClientIdentity} = useAuth() as AuthContextType;
+  const { isAuthenticated, setIsAuthenticated, setClientIdentity} = useAuth() as AuthContextType;
   const loginII = async () => {
 
     const authClient = await AuthClient.create();
@@ -22,18 +22,22 @@ const NotLoggedIn: Component = () => {
     await new Promise<void>((resolve, reject) => {
       authClient.login({
         identityProvider: iiUrl,
-        onSuccess: resolve,
+        onSuccess: function() {
+          setIsAuthenticated(true);
+          resolve();
+        },
         onError: reject,
-      }).then(() => {
-        setIsAuthenticated(true);
       }).catch((e) => {
         console.log("login error", e)
       });
     });
     
-    // set the client identity to the context
-    let identity = authClient.getIdentity();
-    setClientIdentity(identity);
+    if(isAuthenticated()){
+      // set the client identity to the context
+      let identity = authClient.getIdentity();
+      setClientIdentity(identity);
+    }
+    
   };
   return (
     <div>
