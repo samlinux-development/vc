@@ -21,7 +21,7 @@ const LoggedIn: Component = () => {
     try {
       // check if you are logged in
       let options;
-      
+      let requestStart = new Date();
       if(isAuthenticated()){
         // Start loading
         setIsLoading(true); 
@@ -37,8 +37,13 @@ const LoggedIn: Component = () => {
         // get the function counter
         let whoami = await Ic.whoami();
         
+        // get the time in seconds
+        let requestEnd : Date = new Date();
+        let responseTime: number = requestEnd.getTime() - requestStart.getTime();
+        let rrt : number = responseTime/1000;    
+        console.log('Request Response Time (RRT): '+rrt+' seconds !');
         const principalText = (whoami as Principal).toText();
-        document.getElementById('whoamiResponse')!.innerText = 'Your Backend Principal ID: '+principalText;
+        document.getElementById('whoamiResponse')!.innerHTML = 'Your Backend Principal ID: '+principalText + ' <br>Request Response Time (RRT): '+rrt+' seconds !';
 
         // Stop loading
         setIsLoading(false);
